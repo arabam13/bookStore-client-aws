@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { getAuthenticatedUser, getBestRatedBooks } from './common';
+import { useEffect, useState } from "react";
+import { getAuthenticatedUser, getBestRatedBooks } from "./common";
 
-// eslint-disable-next-line import/prefer-default-export
+// // eslint-disable-next-line import/prefer-default-export
 export function useUser() {
   const [connectedUser, setConnectedUser] = useState(null);
   const [auth, setAuth] = useState(false);
@@ -39,7 +39,9 @@ export function useFilePreview(file) {
   const [imgSrc, setImgSrc] = useState(null);
 
   useEffect(() => {
+    // console.log("fileInput[0]?.name: ", fileInput[0]?.name);
     if (file && file[0]?.length > 0) {
+      // console.log(file[0][0]);
       const newUrl = URL.createObjectURL(file[0][0]);
 
       if (newUrl !== imgSrc) {
