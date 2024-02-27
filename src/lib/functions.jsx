@@ -1,28 +1,14 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import styles from "../components/Books/BookItem/BookItem.module.css";
+import "../components/Books/BookItem/BookItem.module.css";
 
-// // eslint-disable-next-line import/prefer-default-export
 export function displayStars(rating) {
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
     if (i < Math.round(rating)) {
-      stars.push(
-        <FontAwesomeIcon
-          key={`full-${i}`}
-          icon={solid("star")}
-          className={styles.full}
-        />
-      );
+      stars.push(<i className="fa-solid fa-star full" key={`full-${i}`}></i>);
     } else {
       stars.push(
-        <FontAwesomeIcon
-          key={`empty-${i}`}
-          icon={solid("star")}
-          className={styles.empty}
-        />
+        <i className="fa-regular fa-star empty" key={`empty-${i}`}></i>
       );
     }
   }
@@ -36,14 +22,10 @@ export function generateStarsInputs(rating, register, readOnly = false) {
     if (rating > 0 && i <= Math.round(rating)) {
       stars.push(
         readOnly ? (
-          <FontAwesomeIcon
-            key={`full-${i}`}
-            icon={solid("star")}
-            className={styles.full}
-          />
+          <i className="fa-solid fa-star full" key={`full-${i}`}></i>
         ) : (
           <label key={`full-${i}`} htmlFor={`rating${i}`}>
-            <FontAwesomeIcon icon={solid("star")} className={styles.full} />
+            <i className="fa-solid fa-star full"></i>
             <input
               type="radio"
               value={i}
@@ -57,14 +39,10 @@ export function generateStarsInputs(rating, register, readOnly = false) {
     } else {
       stars.push(
         readOnly ? (
-          <FontAwesomeIcon
-            key={`full-${i}`}
-            icon={solid("star")}
-            className={styles.empty}
-          />
+          <i className="fa-regular fa-star empty" key={`empty-${i}`}></i>
         ) : (
           <label key={`full-${i}`} htmlFor={`rating${i}`}>
-            <FontAwesomeIcon icon={solid("star")} className={styles.empty} />
+            <i className="fa-regular fa-star empty"></i>
             <input
               type="radio"
               value={i}

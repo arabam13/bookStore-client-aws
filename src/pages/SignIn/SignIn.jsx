@@ -2,7 +2,7 @@ import axios from "axios";
 import * as PropTypes from "prop-types";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as Logo } from "../../images/Logo.svg";
+// import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { storeInLocalStorage } from "../../lib/common";
 import { useUser } from "../../lib/customHooks";
 import { API_ROUTES, APP_ROUTES } from "../../utils/constants";
@@ -79,7 +79,7 @@ function SignIn({ setUser }) {
   const errorClass = notification.error ? styles.Error : null;
   return (
     <div className={`${styles.SignIn} container`}>
-      <Logo />
+      {/* <Logo /> */}
       <div className={`${styles.Notification} ${errorClass}`}>
         {notification.message.length > 0 && <p>{notification.message}</p>}
       </div>
@@ -117,8 +117,7 @@ function SignIn({ setUser }) {
             flex justify-center
             p-2 rounded-md w-1/2 self-center
             bg-gray-800  text-white hover:bg-gray-800"
-            onClick={signIn}
-          >
+            onClick={signIn}>
             {isLoading ? <div className="" /> : null}
             <span>Se connecter</span>
           </button>
@@ -129,8 +128,7 @@ function SignIn({ setUser }) {
             flex justify-center
             p-2 rounded-md w-1/2 self-center
             bg-gray-800  text-white hover:bg-gray-800"
-            onClick={signUp}
-          >
+            onClick={signUp}>
             {isLoading ? (
               <div className="mr-2 w-5 h-5 border-l-2 rounded-full animate-spin" />
             ) : null}
