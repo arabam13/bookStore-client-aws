@@ -13,17 +13,17 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}     
       - name: Build Docker Image
-        run: docker build -t arabam13/bookStore-reactjs-app --build-arg VITE_APP_API_URL='${{ secrets.VITE_APP_API_URL }}' .
+        run: docker build -t arabam13/bookstore-reactjs-app --build-arg VITE_APP_API_URL='${{ secrets.VITE_APP_API_URL }}' .
       - name: Publish Image to docker hub
-        run: docker push arabam13/bookStore-reactjs-app:latest 
+        run: docker push arabam13/bookstore-reactjs-app:latest 
 
   deploy:
     needs: build
     runs-on: self-hosted 
     steps:
       - name: Pull image from docker hub
-        run: docker pull arabam13/bookStore-reactjs-app:latest 
+        run: docker pull arabam13/bookstore-reactjs-app:latest 
       - name: Delete old container
-        run: docker rm -f bookStore-reactjs-app-container
+        run: docker rm -f bookstore-reactjs-app-container
       - name: Run Docker Container
-        run: docker run -d -p 3000:80 --name bookStore-reactjs-app-container arabam13/bookStore-reactjs-app
+        run: docker run -d -p 3000:80 --name bookstore-reactjs-app-container arabam13/bookStore-reactjs-app
