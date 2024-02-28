@@ -26,4 +26,4 @@ jobs:
       - name: Delete old container
         run: docker rm -f bookstore-reactjs-app-container
       - name: Run Docker Container
-        run: docker run -d -p 3000:80 --name bookstore-reactjs-app-container arabam13/bookStore-reactjs-app
+        run: docker run -d -p 3000:80 --name bookstore-reactjs-app-container arabam13/bookstore-reactjs-app
