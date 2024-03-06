@@ -36,6 +36,7 @@ export async function getAuthenticatedUser() {
 
 export async function getBooks() {
   try {
+    console.log(API_ROUTES.BOOKS);
     const response = await axios({
       method: "GET",
       url: `${API_ROUTES.BOOKS}`,
